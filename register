@@ -24,6 +24,10 @@
     <td>Confirm Password</td>
     <td><input type="password" name="confirm"  id="confirm_password"/></td>
   </tr>
+  <tr>
+    <td colspan="2"><input type="submit" name="submit" value="Kirim"></td>
+  
+  </tr>
 </table>
 
 </form>
