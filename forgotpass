@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<form method="post" action="forgot-proses.php" id="form">
+<table width="418" border="0">
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="username" required id="username"/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="text" name="email" required id="email"/></td>
+  </tr>
+    <tr>
+    <td>Pengamanan</td>
+  
+  </tr>
+   
+</table>
+
+</form>
+</body>
+</html>
