@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<form method="post" action="member-proses.php" id="form">
+<table width="418" border="0">
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="username" required id="username"/></td>
+  </tr>
+  <tr>
+    <td>Nama</td>
+    <td><input type="text" name="nama" required id="Nama"/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="text" name="email" required id="email"/></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="pass" id="password"/></td>
+  </tr>
+  <tr>
+    <td>Confirm Password</td>
+    <td><input type="password" name="confirm"  id="confirm_password"/></td>
+  </tr>
+</table>
+
+</form>
+</body>
+</html>
