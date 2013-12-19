@@ -12,11 +12,11 @@ include 'header.php';
 			</div>
 
 			<div class="span9">
-				<div class="hero-unit">
+				<div class="hero-unit" style=" background:none">
                 	<!-- start slide -->
-                    <h2 align="center">Indonesia Flash Tour</h2>
-					<img src="img/foto1.jpg" class="foto">
-                    <p>Penjelasan Gambar</p>
+                    
+					<embed src="img/myfile1.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" class="foto" bgimage="img/bg_3.gif"></embed>
+                    
 				</div>
 
 				<ul class="thumbnails">
