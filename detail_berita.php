@@ -1,50 +1,91 @@
+<script> $(document).ready(function(){ hilang();});</script>
 <?php 
-include 'header.php';
-
- $id=$_GET['id'];
- $select_kat="select * from kategori order by id_kat";
- $kat=mysql_query($select_kat);
-
- $select="select * from berita where id_berita=".mysql_real_escape_string($id)."";
- $query=mysql_query($select);
- while($row=mysql_fetch_array($query))
- {
- $counter=$row['counter'];
- //$tgl = tgl_indo($row['tanggal']);
-
- 
-  $data .='<h3><font color="#0033FF" style="font-weight:bold; ">'.$row['judul'].'</font></h3>
-  			<p><small>Tanggal Posting: <b>'.$tgl.'</b>. Penulis: <b>'.$row['user_id'].'</b>. Dibaca: <b>'.$counter.'</b> kali</small></p>
-			<p><small>Kategori: <b><a href="kategori.php?id='.mysql_real_escape_string($kat["id_kat"]).'">Pantai</a></b> | Daerah : <b><a href="#">Medan</a></b> </small></p>
-			<img src="gambar/'.$row['gambar'].'" class="foto-wisata" vspace="5" hspace="5" align="left">
-			<p>'.$row['isi'].'</p>';
- }
+$id=$_REQUEST['id'];
 
 ?>
-<!-- end header -->
+<style>
+.p-data
+{
+margin-top:20px;
+font-size:18px;
+}
 
-	<div class="container">
-		<div class="row">
-			<div class="span3">
-				<?php
-				include 'sidebar.php';
-				?>
-				
-            </div>
+.p-left
+{
+float:left;
+}
 
-			<div class="span9">
-				<div class="hero-unit">
-               		<?php 
-						echo $data; 
-						mysql_query("update berita set counter=$counter+1 where id_berita='$_GET[id]'"); //untuk menghitung berapa kali artikel dibaca
-					?>
-				</div>
-			</div>
+.p-lbl
+{
+width:100px;
+}
+
+.p-isi
+{
+padding-left:5px;
+}
+	</style>
+<div class="row" >
+<?php  
+$query=mysql_query("select * from berita where id_berita='$id'");
+while($r=mysql_fetch_array($query))
+{
+$counter=$r['counter'];
+ ?>
+<h2 style="text-align:center;border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:10px;"><?php echo $r['judul'];  ?></h2>
+	<div class=" col-xs-6 col-md-4" >
+		<div class="b-f-profil" style="">
+			<img id="view-fakun" src="gambar/<?php echo $r['gambar']; ?>" width="300px" height="250px" />
 		</div>
 	</div>
-	
-	<hr />
-
-	<?php
-include 'footer.php';
+	<div class="col-md-4 ">
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>tanggal</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left '><?php echo $r['tanggal']; ?></div>
+			<div style="clear:both"></div>
+		</div>
+		<?php
+		$query=mysql_query("select * from users where username='$r[user_id]'");
+		$t=mysql_fetch_array($query)
+		?>
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>Penulis</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left '><?php echo $t['nama']; ?></div>
+			<div style="clear:both"></div>
+		</div>
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>Dibaca</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left '><?php echo $counter; ?> kali</div>
+			<div style="clear:both"></div>
+		</div>
+		<?php
+		$q=mysql_query("select * from kategori where id_kat='$r[id_kat]'");
+		$c=mysql_fetch_array($q)
+		?>
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>Ketegori</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left '><?php echo $c['nama_kat']; ?></div>
+			<div style="clear:both"></div>
+		</div>
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>Daerah</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left '><?php echo $r['daerah']; ?></div>
+			<div style="clear:both"></div>
+		</div>
+		<div class='p-data' style=" margin-top:10px;">
+			<div class='p-lbl p-left'>Diskripsi</div>
+			<div class='p-left'>:</div>
+			<div class='p-isi p-left ' style="width:500px; height:200px; padding:5px; overflow-x:hidden;"><?php echo $r['isi']; ?></div>
+			<div style="clear:both"></div>
+		</div>
+	</div>
+<?php
+} mysql_query("update berita set counter=$counter+1 where id_berita='$id'");
 ?>
+</div>
+
