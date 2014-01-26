@@ -1,33 +1,13 @@
-<?php 
-include 'header.php';
-?>
-<!-- end header -->
-	<div class="container">
-		<div class="row">
-			<div class="span3">
-				<?php
-				include 'sidebar.php';
-				?>
-				
-			</div>
+<script> $(document).ready(function(){ hilang(); $('#l-about').addClass('active').css("opacity","1");});</script>
 
-			<div class="span9">
-				<div class="hero-unit">
-                	<h3><font color="#660099">Tentang Kami</font></h3>
-                    <hr>
-                    <p>Penjelesaan tentang kami</p>
-                	<h6>kjdhiuehfwlkjewrgifou8hyreiugherkghieuwhflihfjehwgierhn</h6>
-                    
-                    <h3><font color="#660066">Visi Misi</font></h3>
-                     <hr>
-                    <p>visi misi kami</p>
-				</div>
-			</div>
-		</div>
+<div class="row" style="height:440px;">
+	<div>
+		<h2 style="border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:10px;">Tentang Kami</h2>
+		<p>Penjelesaan tentang kami</p>
+		<h6>kjdhiuehfwlkjewrgifou8hyreiugherkghieuwhflihfjehwgierhn</h6>
 	</div>
-	
-	<hr />
-
-	<?php
-include 'footer.php';
-?>
+	<div style="Margin-top:30px;">
+		<h2 style="border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:10px;">Visi Misi</h2>
+		 <p>visi misi kami</p>
+	</div>
+</div>
