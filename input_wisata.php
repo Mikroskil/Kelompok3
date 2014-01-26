@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "konfigurasi/koneksi.php";
-include "konfigurasi/library.php";
+include "../konfigurasi/koneksi.php";
+include "../konfigurasi/library.php";
 
 $lokasi_file = $_FILES['fupload']['tmp_name'];
 $tipe_file      = $_FILES['fupload']['type'];
@@ -30,7 +30,7 @@ $file_extension = strtolower(substr(strrchr($nama_file,"."),1));
         window.location=('add_wisata.php')</script>";
   }
 	
-	move_uploaded_file($lokasi_file,"gambar/$nama_file_unik");
+	move_uploaded_file($lokasi_file,"../gambar/$nama_file_unik");
 	mysql_query("insert into berita (user_id,judul,isi,id_kat,daerah,gambar,tanggal)
 		values('$_SESSION[username]', '$judul', '$isi', '$kategori', '$daerah', '$nama_file_unik', '$tgl_sekarang') ");
 
@@ -41,5 +41,5 @@ else{
 		values('$_SESSION[username]','$judul', '$isi', '$kategori', '$daerah','$tgl_sekarang')");
 }
 
-header('location:tambah_wisata.php');
+header('location:../index.php?module=t_wisata');
 ?>
